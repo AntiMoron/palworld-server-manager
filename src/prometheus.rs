@@ -48,5 +48,5 @@ start_service() {
 init_prometheus
 start_service
 "#;
-script::execute_bash_command("sudo apt-get update -y");
+  script::execute_bash_command(node_exporter_bash);
 }

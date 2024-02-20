@@ -51,7 +51,7 @@ pub fn is_port_in_use(port: u16) -> bool {
 
 pub fn get_random_safe_port() -> u16 {
     let min_port = 3000; // avoid system ports
-    let max_port = 9999; // use only those ports with 4 digits
+    let max_port = 9098; // use only those ports with 4 digits, avoid 9100 and 9090
 
     loop {
         let port = min_port + (rand::random::<u16>() % (max_port - min_port + 1));

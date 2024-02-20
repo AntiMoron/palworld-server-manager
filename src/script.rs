@@ -1,6 +1,6 @@
-use std::process::Command;
+use std::{fs::File, io::Write, process::Command};
 
-fn execute_bash_command(command: &str) {
+pub fn execute_bash_command(command: String) {
   let output = Command::new("bash")
       .arg("-c")
       .arg(command)
@@ -47,11 +47,11 @@ init_docker
 "#;
 
 pub fn init_docker() {
-  execute_bash_command(&INIT_DOCKER);
+  execute_bash_command(INIT_DOCKER.to_string());
 }
 
 pub fn init_prom_conf(dir: &str) {
-  const sc = r#"global:
+  let sc = r#"global:
   scrape_interval: 15s
 
 scrape_configs:

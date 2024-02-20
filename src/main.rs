@@ -96,7 +96,7 @@ fn deploy() {
     script::init_docker();
     // create prometheus config
     let prom_dir = format!("{}/.prometheus/prometheus.yml", &util::get_home_dir());
-
+    script::init_prom_conf(&prom_dir);
     // create docker compose file
     docker_compose::generate_docker_compose_for_dir(
         &user_folder,

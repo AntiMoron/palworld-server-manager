@@ -49,3 +49,17 @@ init_docker
 pub fn init_docker() {
   execute_bash_command(&INIT_DOCKER);
 }
+
+pub fn init_prom_conf(dir: &str) {
+  const sc = r#"global:
+  scrape_interval: 15s
+
+scrape_configs:
+- job_name: node
+  static_configs:
+  - targets: ['localhost:9100']
+  "#;
+  let mut file = File::create(dir).unwrap();
+  let template = sc.to_string();
+  file.write_all(template.as_bytes()).unwrap();
+}

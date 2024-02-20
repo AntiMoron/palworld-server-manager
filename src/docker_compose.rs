@@ -54,12 +54,11 @@ services:
       - SAVE__SYNC_INTERVAL=120
   prom:
     image: prom/prometheus
+    network_mode: host
     volumes:
       - type: bind
         source: {PROM_CONF_FILE}
         target: /etc/prometheus/prometheus.yml
-    ports:
-      - 9090:9090
   node_exportor:
     image: quay.io/prometheus/node-exporter:latest
     container_name: node_exporter

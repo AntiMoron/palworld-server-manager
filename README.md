@@ -1,6 +1,8 @@
 ## Palworld-Server-Manager
 
-Make deploying and managing Palworld dedicated server easily on Linux servers.
+Fast generate docker file and deploy Palworld, with full features of game play, RCON, monitoring, backup... based on other repos.
+
+**Make deploying and managing Palworld dedicated server easily on Linux servers.**
 
 ### You can:
 

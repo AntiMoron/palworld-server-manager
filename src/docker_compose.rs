@@ -60,6 +60,16 @@ services:
         target: /etc/prometheus/prometheus.yml
     ports:
       - 9090:9090
+  node_exportor:
+    image: quay.io/prometheus/node-exporter:latest
+    container_name: node_exporter
+    command:
+      - '--path.rootfs=/host'
+    network_mode: host
+    pid: host
+    restart: unless-stopped
+    volumes:
+      - '/:/host:ro,rslave'
 "#;
 
 pub fn generate_docker_compose_for_dir(dir: &str, options: HashMap<&str, String>) {

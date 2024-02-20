@@ -24,7 +24,6 @@ fn create_user_folder(user_name: &str) {
     util::create_folder(&folder_path)
 }
 
-
 #[command(deploy, "create a new server of Palworld")]
 fn deploy() {
     let public_server: bool = Confirm::new()
@@ -114,7 +113,7 @@ fn deploy() {
         ]),
     );
     // start containers
-
+    script::execute_bash_command(format!("cd {} && sudo docker compose up -d", &user_folder));
 }
 
 // options here are public, options above `#[command]` are private

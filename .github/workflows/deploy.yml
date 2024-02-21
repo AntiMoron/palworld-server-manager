@@ -39,7 +39,7 @@ jobs:
         # Arguments to pass in
         with:
           # Make Rust compile to our target (defined in the matrix)
-          targets: $\{\{ matrix.target \}\}
+          targets: ${{ matrix.target }}
 
       - name: Build
         uses: actions-rs/cargo@v1

@@ -46,6 +46,8 @@ services:
     memswap_limit: 4g
     restart: unless-stopped
     container_name: palworld-{UID}-admin
+    volumes:
+      - /palworld/Pal/Saved:/game
     environment:
       - WEB__PASSWORD=
       - RCON__ADDRESS=127.0.0.1:{RCON_PORT}

@@ -39,7 +39,9 @@ jobs:
         # Arguments to pass in
         with:
           # Make Rust compile to our target (defined in the matrix)
-          targets: $\{\{ matrix.target \}\}
+          targets:
+            - x86_64-unknown-linux-musl
+            - x86_64-apple-darwin
 
       - name: Build
         uses: actions-rs/cargo@v1
